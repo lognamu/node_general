@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table border=1>
+      <tr>
+        <th>번호</th>
+        <th>이름</th>
+        <th>소속사</th>
+        <th>수정</th>
+        <th>삭제</th>
+      </tr>
+      <% list.forEach(function(item, index){ %>
+      <tr>
+        <td><%=item.id%></td>
+        <td><%=item.name%></td>
+        <td><%=item.company%></td>
+        <td><a href="/musician/edit/<%=item.id%>">수정</a></td>
+        <td><a href="/musician/delete/<%=item.id%>">삭제</td>
+      </tr>
+      <% }); %>
+    </table>
+    <input type="button" onclick="location.href='musician/add'" value="등록"/>
+  </body>
+</html>

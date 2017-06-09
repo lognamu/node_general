@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>메인</title>
+</head>
+<script type="text/javascript">
+  function join() {
+    location.href = "/member/join";
+  }
+</script>
+
+<body>
+  <h2>환영합니다.</h2>
+  <div class="login">
+    <form class="" action="/member/login" method="post">
+      <input type="text" name="id" value="" placeholder="Insert ID"><br>
+      <input type="password" name="pwd" value="" placeholder="Insert PWD"><br>
+      <input type="submit" name="" value="Login">
+      <input type="button" name="" value="Join" onclick="join()">
+    </form>
+  </div>
+</body>
+
+</html>

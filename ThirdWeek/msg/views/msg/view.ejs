@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      var socket = null;
+      var name;
+      window.onload = function(){
+        socket = io.connect();
+        name = '<%=name%>'
+        //방에입장 - 원래는 방을 선택하는 절차가 있어야 하지만... 방이 하나므로 client방에 입장
+        socket.emit("join", name);
+        socket.on("view_member", function(data){
+          //개선된 for문
+          for(var v of data){
+              var html = "<li class='name' id='"+v.id+"'onclick='selectId(this)'>"+v.name+"</li>";
+              document.getElementById('connectUsers').innerHTML += html;
+          }
+        });
+        socket.on('receive_msg',function(data){
+          document.getElementById('ta').value += data.name+":"+data.msg+"\n";
+        });
+
+        socket.on('update_member', function(data){
+          var html = "<li class='name' id='"+data.id+"'onclick='selectId(this)'>"+data.name+"</li>";
+          document.getElementById('connectUsers').innerHTML += html;
+        });
+      };
+
+      function selectId(li){
+        var msg = prompt(li.innertText + "님 에게 메세지를 보냅니다.");
+        socket.emit('sendTo',{to:li.id, name:name, msg:msg});
+      }
+    </script>
+  </head>
+  <body>
+    <ul id="connectUsers"></ul>
+    <textarea id="ta" cols="40" rows="20"></textarea>
+  </body>
+</html>

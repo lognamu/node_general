@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%=bbs.title%>
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript">
+    function del(idx) {
+      var check = confirm('정말 삭제하시겠습니까?');
+      if (check) {
+        location.href = '/bbs/delete/' + idx;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="main_div">
+    <table width="690" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="120" height="25" class="td_d">제목</td>
+        <td class="td_d_1">
+          <%=bbs.title %>
+        </td>
+      </tr>
+      <tr>
+        <td width="120" height="25" class="td_d_4">작성자</td>
+        <td class="td_d_2">
+          <%=bbs.name %>
+        </td>
+      </tr>
+      <tr>
+        <td width="120" height="25" class="td_d_4">작성일</td>
+        <td class="td_d_2">
+          <%
+          var year = bbs.regdate.getFullYear();
+          var month = bbs.regdate.getMonth()+1;
+          var date = bbs.regdate.getDate();
+          var regdate = year+'. '+month+'. '+date;
+        %>
+            <%=regdate %>
+        </td>
+      </tr>
+      <tr>
+        <td width="120" class="td_d_4">내용</td>
+        <td class="td_d_3" width="570" style="word-wrap:break-word;word-break:break-all">
+          <pre><%=bbs.content %></pre>
+        </td>
+      </tr>
+    </table>
+    <table width="690" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="5"></td>
+      </tr>
+      <tr>
+        <td align="right">
+          <img src="/img/btn_list.gif" onClick="javaScript:location.href='/bbs/list'" style="cursor:pointer">
+          <img src="/img/btn_modify.gif" onClick="javaScript:location.href='/bbs/update/<%=bbs.idx%>'" style="cursor:pointer">
+          <img src="/img/btn_delete.gif" onClick="del(<%=bbs.idx%>)" style="cursor:pointer">
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

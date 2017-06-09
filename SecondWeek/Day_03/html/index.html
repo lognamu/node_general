@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- get방식 - 브라우저가 데이터를 요청헤더에 담아서 서버에 요청을 하는 방식 -->
+    <a href='/'>get방식으로 요청</a>
+
+    <!-- get방식 - 브라우저가 데이터를 요청바디 담아서 서버에 요청을 하는 방식 -->
+    <form method='post' action='/'>
+      <input type="submit" value="post방식으로 요청">
+    </form>
+
+    <a href='/?company=increpas'>get방식으로 요청하면서 데이터보내기</a>
+    <form method='post' action='/'>
+      <input type="text" name='company'><br>
+      <input type="submit" value="post방식으로 요청하면서 데이터보내기">
+    </form>
+
+    <a href='/?company=increpas&location=구디&location=석천빌딩'>get방식으로 요청하면서 데이터 여러개 보내기</a>
+    <form method='post' action='/'>
+      <input type="text" name='company'><br>
+      <input type="text" name="location"><br>
+      <input type="text" name="location"><br>
+      <input type="submit" value="post방식으로 요청하면서 데이터보내기">
+    </form>
+
+  </body>
+
+
+
+</html>

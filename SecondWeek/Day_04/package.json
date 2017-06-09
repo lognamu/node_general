@@ -1,0 +1,17 @@
+{
+  "name": "day04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ex01_express.js",
+  "scripts": {
+    "start": "supervisor ex06_connect-multiparty.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2"
+  }
+}
