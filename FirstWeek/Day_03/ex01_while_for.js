@@ -1,4 +1,5 @@
-  //반복문은 일련의 코드를 특정한 조건동안 반복해서 실행하게 합니다.
+var rls = require('readline-sync');
+//반복문은 일련의 코드를 특정한 조건동안 반복해서 실행하게 합니다.
 //반복문의 종류는 크게 while문과 for문이 있습니다.
 
 //while문
@@ -7,7 +8,10 @@
 var myBoolean = true;
 while(myBoolean){
   console.log('여러분 반갑습니다.');
-  myBoolean = false;
+  var choice = rls.question("Do you want to continue? (y | n) : ");
+  if(choice != "y"){
+    myBoolean = false;
+  }
 }
 
 //()안에는 항상 true이기 때문에 해당 while문은 무한반복을 돕니다.

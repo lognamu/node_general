@@ -16,49 +16,6 @@ if(age <= 19){
 //만약 논리 값이 false일경우 수행할 코드가 없다면 else{}는 생략가능합니다.
 
 
-//조건이 다수일 때는 else if를 사용합니다.
-console.log("--------------");
-
-var score = 82;
-if( score > 90){
-  console.log("A학점입니다.");
-}else if(score > 80){
-  console.log("B학점입니다.");
-}else if(score > 70){
-  console.log("C학점입니다.");
-}else{
-  console.log("F학점입니다.");
-}
-
-
-
-
-//break의 특성을 활용해서 월을 입력하면 해당 월의 마지막 날짜를 알려주는 프로그램을 작성해보자
-console.log('-------------');
-/*var r = readline.createInterface({
-  input:process.stdin,
-  output:process.stdout,
-});
-r.question("몇월이 궁금하십니까?", function(answer) {
-  answer = Number(answer);
-   switch(answer){
-     case 1:
-     case 3:
-     case 5:
-     case 7:
-     case 8:
-     case 10:
-     case 12: console.log('마지막날이 31일입니다.'); break;
-     case 4:
-     case 6:
-     case 9:
-     case 11: console.log('마지막날이 30일입니다.'); break;
-     case 2: console.log('마지막 날이 28일입니다.'); break;
-     default: console.log('잘못된 입력입니다.');
-   }
-   r.close();
-});*/
-
 /*
   #실습#
   강화도에 있는 해병대의 상근 통역병에 대한 적합성을 검사하는 로직입니다.

@@ -26,7 +26,7 @@ console.log("요금 : ",fee);
 //소형차는 할인이 20%적용되어 80%금액만 적용됩니다.
 //대형차는 할증이 20%부과되어 120퍼센트의 금액이 적용됩니다.
 
-var kindOfCar = rls.question("Enter kind of car (small / middle / big) : ");
+var kindOfCar = rls.question("Enter kind of car (small | middle | big) : ");
 //-------------------
 switch(kindOfCar){
   case 'small':

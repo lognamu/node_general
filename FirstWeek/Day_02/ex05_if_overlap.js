@@ -2,7 +2,7 @@ var readlineSync = require('readline-sync');
 
 var age = Number(readlineSync.question("Enter user age : "));
 
-var gender = readlineSync.question("Enter your gender (male / female) : ");
+var gender = readlineSync.question("Enter your gender (male | female) : ");
 
 if(age > 0){
   console.log("입대 가능하신 나이시군요");
