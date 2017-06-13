@@ -6,6 +6,7 @@ console.log('hello world');
 //자동으로 넣어줍니다. 하지만 이는 가독성을 해치므로 에러가
 //안나도 항상 세미콜론을 넣어줍시다.
 console.log('hello world2')
+console.log('hello world2');
 
 /*
   #실습#
