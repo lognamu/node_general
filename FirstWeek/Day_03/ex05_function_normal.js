@@ -43,16 +43,29 @@ members = sayMember4('길동', '꺽정', '길산');
 console.log(members);
 
 //실습
-//문제1)반지름을 입력하면 원의 길이를 출력(console.log())하는 함수를 정의하시오.
-//원 둘레를 구하는 공식은 [2*3.14*반지름]
-function circumference(radius){
-  //console.log(2*3.14*radius);
-  console.log(2*Math.PI*radius);
+//문제1)
+// function printDan(){
+//   for(var i=0;i<10;i++){
+//     console.log("7 x "+i+" = "+7*i);
+//   }
+// }
 
-}
-circumference(5);
+//위의 printDan이라는 함수를 파라미터를 받도록 해서
+//7단만 고정으로 출력하는 함수가 아닌
+//파라미터로 받은 숫자의 단을 출력하는 함수로 변경하시오.
 
-//문제2)반지름을 입렵하면 원의 넓이를 반환(return)해주는 함수를 정의하시오.
+//ex) printDan(3);
+//[출력]
+// 3 x 1 = 3
+// 3 x 2 = 6
+// ...
+// ...
+// 3 x 9 = 27
+
+
+
+//문제2)반지름을 입렵하면 원의 넓이를 반환(return)해주는
+//     함수를 정의하고 함수를 호출한 결과를 출력하시오.
 //원 둘레를 구하는 공식은 [2*3.14*반지름]
 function circleArea(r){
   //return Math.PI*r*r;
