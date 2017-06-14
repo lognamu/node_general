@@ -87,6 +87,8 @@ console.log(stringValue);
 */
 console.log('-----테스트-----');
 var testNumber = 20;
-var testString = "f";
+var testString = "10";
 var testBoolean = true;
 console.log(String(testNumber)+parseInt(testString, 16));
+
+console.log(String(testNumber) + parseInt(testString, 16) - testBoolean);
