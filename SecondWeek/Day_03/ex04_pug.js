@@ -27,7 +27,7 @@ var server = http.createServer(function(request, response){
   }
 });
 
-server.listen(55555, function(){
+server.listen(3000, function(){
   console.log('Server running at http://localhost:55555');
 });
 //pug도 앞으로 계속 사용할 것이므로 완벽히 습득하지 못했다고 불안해 하지 말자

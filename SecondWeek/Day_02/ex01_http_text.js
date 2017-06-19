@@ -5,6 +5,6 @@ var server = http.createServer(function(request, response){
   response.end('<h1>hello NodeJs</h1>');
 });
 
-server.listen(55555, function(){
+server.listen(3000, function(){
   console.log('Server running at http://localhost:55555');
 });

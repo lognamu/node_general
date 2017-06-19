@@ -13,6 +13,5 @@ router.get('/', function(request, response){
     }else{
       response.send(ejs.render(data,{name:'Guest'}));
     }
-
   });
 });

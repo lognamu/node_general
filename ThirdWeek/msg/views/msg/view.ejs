@@ -30,7 +30,7 @@
       };
 
       function selectId(li){
-        var msg = prompt(li.innertText + "님 에게 메세지를 보냅니다.");
+        var msg = prompt(li.innerText + "님 에게 메세지를 보냅니다.");
         socket.emit('sendTo',{to:li.id, name:name, msg:msg});
       }
     </script>
