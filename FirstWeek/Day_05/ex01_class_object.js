@@ -31,7 +31,7 @@ function logout(){}
 
 //비슷한 성향의 변수와 함수들을 모아서 클래스를 만들자.
 //함수처럼 보일수 있지만 function키워드를 사용해서 클래스를 정의한 것이다.
-function Join(){
+function JoinAndQuit(){
   //함수일경우 변수선언을 var로 하지만 클래스는 this를 사용한다.
   //this는 클래스(객체) 자신을 의미한다.
   this.regDate;
@@ -44,7 +44,7 @@ function Join(){
   }
 }
 
-function Login(){
+function LoginAndLogout(){
   this.loginCount = 0;
   this.isLogined = false;
   this.login = function(){
@@ -57,7 +57,7 @@ function Login(){
     console.log('환영합니다.');
   }
   this.logout = function(){
-    if(isLogined == false){
+    if(this.isLogined == false){
       console.log('이미 로그아웃 되셨습니다.');
       return;
     }

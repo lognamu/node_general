@@ -4,7 +4,7 @@
 function counterMaker(){
   var count = 0;
   function counter(){
-    count = count+1
+    count += 1;
     return count;
   }
   return counter;
@@ -38,17 +38,17 @@ function personMaker(){
     name = arguments[0];
   }
 
-  return {'getName':getName, 'setName':setName};
+  return [getName, setName];
 }
 
 
-var person = personMaker();
+var result = personMaker();
 
 //외부에서 name이라는 변수를 이름으로 직접접근할 수 없기 때문에 name은 캡슐화되어있는 상태이다.
-person.setName('장동혁');
-console.log(person.getName());
-person.setName('flynn');
-console.log(person.getName());
+result[1]('장동혁');
+console.log(result[0]());
+result[1]('flynn');
+console.log(result[0]());
 //즉 setName이라는 함수를 선언하지 않으면 값을 함부로 변경할 수 없고
 //getName이라는 함수를 선언하지 값을 지정할수는 있지만 가져올 수는 없다.
 //이런식으로 변수의 접근권한(읽기, 쓰기)를 지정하는 것을 캡슐화라고 한다.
@@ -60,4 +60,4 @@ console.log(person.getName());
 //이는 스크립트 언어라는 한계를 극복해주는 중요한 개념이다.
 //클로저를 완벽히 이해하기 위해서는 객체지향이라는 거대하고 복잡한 개념을 이해하고 넘어가야한다.
 //이는 많은 시간과 노력을 필요로할 뿐만 아니라 현 시점에서 공부하는 것은 시기상조라고 생각한다.
-//어쩌다 보니 의돕다 더 깊게 설명했는데 현 시점에서는 클로저가 무엇이고 생성하는 정도만 알아두어도 무방하다.
+//어쩌다 보니 의도보다 더 깊게 설명했는데 현 시점에서는 클로저가 무엇이고 생성하는 정도만 알아두어도 무방하다.

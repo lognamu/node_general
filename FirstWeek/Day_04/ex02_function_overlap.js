@@ -41,20 +41,21 @@ sayMember2('길동','꺽정','길산');
 
 var globalNumber = 2;
 
-function outter(){
-  var outterNumber = 5;
+function outer(){
+  var outerNumber = 5;
 
   function inner(){
     var innerNumber = 10;
-    console.log('#1 '+globalNumber);
-    console.log('#2 '+outterNumber);
+    console.log('#1', globalNumber);
+    console.log('#2', outerNumber);
+    console.log('#3', innerNumber);
   }
 
-  console.log('#3 '+globalNumber);
+  console.log('#4 '+globalNumber);
   //console.log(innerNumber);
   inner();
 }
 
-//console.log(outterNumber);
-outter();
+//console.log(outerNumber);
+outer();
 //inner();

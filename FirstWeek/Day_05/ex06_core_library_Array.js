@@ -3,7 +3,7 @@
 //String클래스처럼 배열은 Array라는 클래스를 이용해서도 만들수 있다.
 
 //var cityArray = new Array();
-var cityArray = new Array(6);
+var cityArray = new Array();
 console.log(cityArray.length);
 cityArray[0] = '서울';
 cityArray[1] = '부산';
