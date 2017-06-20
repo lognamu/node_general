@@ -1,0 +1,7 @@
+body
+  a(href="http://www.naver.com") 네이버
+  br
+  ul
+    -var users = [{name:"철수", age:9}, {name:"영희", age:8}]
+    each val, index in users
+      li= "Name: " + val.name + ", Age: " + val.age

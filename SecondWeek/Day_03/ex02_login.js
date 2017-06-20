@@ -5,9 +5,10 @@ var querystring = require('querystring');
 
 var server = http.createServer(function(request, response){
   var pathname = url.parse(request.url).pathname;
-  response.writeHead(200, {'Content-Type':'text/html'});
+
   if(pathname == '/'){
     fs.readFile('./html/main.html', 'utf-8', function(error, data){
+      response.writeHead(200, {'Content-Type':'text/html'});
       response.end(data);
     });
   }else if(pathname == '/login' && request.method=="GET"){
@@ -15,6 +16,7 @@ var server = http.createServer(function(request, response){
       //정적html을 반환
       //정적이란 의미는 움직이는 동적의 반댓말로 이미 생성되어있는 HTML을 말한다.
       //이미 생성되어있는 HTML이기 때문에 항상 똑같은 페이지이다.
+      response.writeHead(200, {'Content-Type':'text/html'});
       response.end(data);
     });
   }else if(pathname == '/login' && request.method=="POST"){
@@ -26,7 +28,11 @@ var server = http.createServer(function(request, response){
       var id = params.id;
       var password = params.password;
       console.log(id, password);
+
+      //응답할 데이터에 한글이 포함되어 있다면 charset을 지정해주자.
+      //## response.writeHead(200,{'Content-Type':'text/html'});
       response.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});
+
       //동적html을 반환
       //동적이란 의미는 움직인다는 말로 그때 그때 상황에 맞게 HTML을 새로 만든다는 것이다.
       //새로만드는 HTML이기 때문에 항상 다른 페이지이다.
@@ -48,11 +54,28 @@ var server = http.createServer(function(request, response){
       //데이터를 중간중간 끼워 넣을 수 있게 해준다.
     });
   }else{
-    response.end('<h1>Page Not Found!</h1>');
+    //response.writeHead(404);
+    response.writeHead(500);
+    response.end();
+
   }
 });
 
 server.listen(3000, function(){
 
-  console.log('Server running at http://localhost:55555');
+  console.log('Server running at http://localhost:3000');
 });
+
+/*
+  실습
+  1. ex02_text.js 파일을 생성하시오.
+  2. http, url, querystring모듈을 import하시오
+  3.  요청에 응답하는 구조를 아래와 같이 작성하시오.
+      / -> <h1>main페이지<h1>
+        -> <ul>(밑에서 정의하는 요청으로 이동하는 메뉴작성)</ul>
+      /login/form -> login폼 보여주기
+      /login/login -> id가 'hong' password가 '1111'일 경우 <h2>환영합니다</h2>
+                   -> 아닐 경우 <h2>비밀번호가 틀립니다.</h2>
+      /bbs -><h1>:::게시판:::</h1>
+      /visit -><h1>:::게시판:::</h1>
+*/

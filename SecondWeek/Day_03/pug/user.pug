@@ -1,7 +1,78 @@
-doctypehtml
+doctype html
 html
   head
-    title=title
+    meta(charset="utf-8")
+    title #{title}
   body
+    ul
+      li
+        a(href="book-a") Book A
+      li
+        a(href="book-b") Book B  
+      li
+        a(href="book-c") Book C
+    ul
+      li: a(href="book-d") Book D
+      li: a(href="book-e") Book E  
+      li: a(href="book-f") Book F 
+    
+    pre
+      |현재 이곳은
+      |pre태그
+      |내부입니다.
+    
+    pre.
+      이곳도 역시
+      pre태그
+      내부입니다.
+    
+    form(action="/" method="post")
+      input(id="id" name="id" placeholder="아이디를 입력해 주세요")
+      br
+      input(type="submit" value="전송")
+    
+    div#content
+      div.block
+        input#bar.foo1.foo2
+    
+    #content
+      .block
+        input#bar.foo3.foo4
+    
+    //주석
+      
     -for(var i=0;i<5;i++)
-      h1 #{name}님 환영합니다.ㅋㅋㅋ
+      h2 #{name}님 환영합니다.#{i}
+    
+    ul
+      -for(var city of ['서울', '대전', '대구', '부산'])
+        li #{city}
+    
+    -var books = ['어린왕자', '나의라임오렌지나무', '노인과 바다']
+    select
+      option(value="") ::선택해주세요::
+      each book, i in books
+        option(value=i) #{book}
+        
+    br
+      
+    -books = []
+    for book in books
+      li #{book}
+    else 
+      li 책이 없습니다.
+      
+    if(name=='flynn1')
+      h2 하하하
+    else
+      h2 호호호
+      
+    case name
+      when "hong"
+        p Hi gildong?
+      when "flynn"
+        p Hi donghyeuk?
+      default
+        p Hello #{name}
+
+    

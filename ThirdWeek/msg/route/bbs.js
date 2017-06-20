@@ -27,7 +27,12 @@ router.get('/view/:idx', function(request, response){
 
 router.get('/insert', function(request, response){
   fs.readFile('./views/bbs/insert.ejs','utf-8', function(error, data){
-    response.send(ejs.render(data, {name:request.session.user.name}));
+    if(request.session.user.name){
+      response.send(ejs.render(data, {'name':request.session.user.name}));
+    }else{
+      response.send(ejs.render(data, {'name':'Guest'}));
+    }
+
   });
 });
 

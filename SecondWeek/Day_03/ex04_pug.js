@@ -6,7 +6,7 @@ var http = require('http');
 var fs = require('fs');
 var url = require('url');
 var querystring = require('querystring');
-//npm install jade
+//npm install pug
 var pug = require('pug');
 
 var server = http.createServer(function(request, response){
@@ -16,18 +16,23 @@ var server = http.createServer(function(request, response){
     response.writeHead(200, {'Content-Type':'text/html; charset="utf-8"'});
     response.end('<h1>메인페이지</h1>');
   }else if(pathname == '/user'){
-    fs.readFile('./pug/user.pug','utf-8', function(error, data){
-      console.log(data);
-      var fn = pug.compile(data);
+    fs.readFile('./pug/index.pug','utf-8', function(error, data){
+      //console.log(data);
+      var fn = pug.compile(data,{"filename":"./pug/includes"});
       response.writeHead(200, {'Content-Type':'text/html; charset="utf-8"'});
       response.end(fn(
         {title:'myPage',name:'flynn'}
       ));
     });
+  }else if(pathname == '/js/my.js'){
+    fs.readFile('./js/my.js','utf-8',function(error, data){
+      response.writeHead(200, {'Content-Type':'text/javascript; charset="utf-8"'});
+      response.end(data);
+    });
   }
 });
 
 server.listen(3000, function(){
-  console.log('Server running at http://localhost:55555');
+  console.log('Server running at http://localhost:3000');
 });
 //pug도 앞으로 계속 사용할 것이므로 완벽히 습득하지 못했다고 불안해 하지 말자
