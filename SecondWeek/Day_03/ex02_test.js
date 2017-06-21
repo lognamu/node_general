@@ -16,7 +16,7 @@ var server = http.createServer(function(request, response){
       response.writeHead(200, {'Content-Type':'text/html'});
       response.end(data);
     });
-  }else if(pathname == '/login' && request.method=="POST"){
+  }else if(pathname == '/login' && request.method=="POST" ){
     request.on('data', function(data){
       var params = querystring.parse(data.toString());
       var id = params.id;
