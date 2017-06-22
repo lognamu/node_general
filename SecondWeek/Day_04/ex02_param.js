@@ -3,18 +3,23 @@ var fs = require('fs');
 var bodyParser = require('body-parser');
 //서버생성
 var app = express();
-app.get('/', function(request, response){
-  var name = request.query.name;
+
+app.set('views','./views');
+app.set('view engine', 'pug');
+
+app.get('/name/:name', function(request, response){
+  var name = request.params.name;
   console.log("name:",name);
   response.type('text/html');
   response.send('<h1>메인페이지</h1>'+name+'님 환영합니다.');
 });
 
 app.get('/login', function(request, response){
-  response.type('text/html');
-  fs.readFile('./html/login.html','utf-8',function(error, data){
-    response.send(data);
-  });
+  // response.type('text/html');
+  // fs.readFile('./html/login.html','utf-8',function(error, data){
+  //   response.send(data);
+  // });
+  response.render('login',{title:"myPage"});
 });
 
 app.get('/user/:id',function(request, response){
