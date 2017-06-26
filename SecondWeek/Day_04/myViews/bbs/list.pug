@@ -1,0 +1,13 @@
+html
+  head
+    meta(charset="utf-8")
+    script.
+      if(!'#{user}'){
+        alert('로그인 후 이용하세요');
+        location.href="/login";
+      }
+  body
+    ul
+      li javascript
+      li nodeJs
+      li express

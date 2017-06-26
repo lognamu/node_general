@@ -9,7 +9,7 @@ app.use(cookieParser());
 
 app.get('/', function(request, response){
   //쿠키생성
-  response.cookie('auto-login', true);
+  response.cookie('auto-login', true, {maxAge:1000*10});
   response.cookie('login-info', {
     'userId':'admin',
     'savePassword':false,

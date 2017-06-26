@@ -6,19 +6,32 @@ var bodyParser = require('body-parser');
 
 
 var app = express();
-
+app.set('views', './myViews');
+//app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(session({
-  secret: 'hellonodesecret',
-  resave: false,
-  saveUninitialized: true
+  key:'sid', //세션키
+  secret: 'hellonodesecret', //session을 암호화 할때 사용하는 키
+  resave: false, //세션에 변동이 없어도 계속 저장할지 설정 default: true
+  saveUninitialized: true, //초기화되지 않은 세션정보도 저장할지 설정  default: true
+  cookie: {
+    maxAge: 1000 * 10// 쿠키 유효기간 1시간
+  }
 }));
 
 app.get('/',function(request, response){
   response.type('text/html');
+  if(request.session.USER == null){
+      response.send('<h1>Root Page</h1>');
+  }else{
+      response.send('<h1>Root Page</h1><a href="/bbs/list">게시판</a>');
+  }
+});
 
-  response.send('<h1>Root Page</h1>');
+app.get('/bbs/list', function(request, response){
+  response.render("bbs/list.pug", {user:request.session.USER});
+
 });
 
 app.get('/login',function(request, response){
@@ -28,11 +41,7 @@ app.get('/login',function(request, response){
     response.redirect('/');
     return;
   }
-
-  fs.readFile('./html/login.html',function(error, data){
-    response.type('text/html');
-    response.send(data);
-  });
+  response.render("login/form.pug");
 });
 
 app.post('/login',function(request, response){

@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title
+  body
+    form(action="/fileupload" method="post" enctype="multipart/form-data")
+      input(type="text" name="comment" placeholder="type the comment")
+      br
+      input(type="file" name="file" multiple)
+      br
+      input(type="submit" value="전송")
+      
+    

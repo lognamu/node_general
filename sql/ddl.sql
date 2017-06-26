@@ -12,7 +12,7 @@ use node_general;
 
 create table class(
 	number int(2),
-    name varchar(10)
+  name varchar(10)
 );
 
 show tables;
@@ -26,9 +26,6 @@ drop table class;
 drop database node_general;
 
 #node_general은 앞으로 쭉 사용해야 하기 때문에 다시 생성하도록 하겠습니다.
-grant all on *.* to 'flynn'@'localhost';
-select * from user;
+create database node_general default charset 'utf8';
 
 #더 많은 DDL이있지만 시간상 이정도만 진행하겠습니다.
-
-

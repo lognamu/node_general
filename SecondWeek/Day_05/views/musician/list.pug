@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title
+  body
+    table(border="1")
+      tr
+        th 번호
+        th 이름
+        th 소속사
+        th 수정
+        th 삭제
+      for item in list
+        tr
+          td #{item.id}
+          td #{item.name}
+          td #{item.company}
+          td: a(href="/musician/edit/item.id") 수정
+          td: a(href="/musician/delete/"+item.id) 삭제
+    input(type="button" value="추가" onclick="location.href='/musician/add'")
+          

@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 //정적라우팅
 //정적자원들을 제일먼저 로드할 수 있도록 상단에 등록
 //보통 js(자바스크립트 라이브러리(jquery, ajax등)또는 css등을 제공할때 사용
-app.use('/image',express.static(__dirname+'/static'));
+app.use('/static',express.static(__dirname+'/public'));
 
 //var login = require('./route/login');
 app.use(bodyParser.urlencoded({extended:false}));

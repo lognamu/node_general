@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+console.log('Global Mudule');
+console.log('argv: ', process.argv);
+console.log('dirname', __dirname);

@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script.
+      function put(){
+        $.ajax({
+          type:"PUT",
+          url:"/user",
+          data:{person:{name:"cw", gender:"man"}},
+          success:function(result){
+            console.log(result);
+            console.log(result.person);
+            console.log(result.person.name);
+          }
+        });
+      }
+      
+      function del(){
+        $.ajax({
+          type:"DELETE",
+          url:"/user/10",
+          //data:{id:"10"},
+          success:function(result){
+            console.log(result);
+          }
+        });
+      }
+      
+  body
+    input(type="button" value="PUT" onclick="put()")
+    br    
+    input(type="button" value="DELETE" onclick="del()")
+      
