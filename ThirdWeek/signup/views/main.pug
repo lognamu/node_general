@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title Main
+    script.
+      function signin(form){
+        var id = form.id;
+        var pwd = form.pwd;
+        if(id.value == ""){
+          alert('insert ID');
+          id.focus();
+          return;
+        }
+        if(!pwd.value){
+          alert('insert ID');
+          pwd.focus();
+          return;
+        }
+        
+        form.submit();
+      }
+  body
+    h1 메인페이지
+    div
+      form(action="/member/signin" method="post")
+        table(border=1, style="border-collapse:collapse")
+          tr
+            th ID
+            td: input(name="id")    
+          tr
+            th PW
+            td: input(type="pwd" name="id")  
+          tr
+            td(colspan="2")
+              input(type="button" value="Sign In" onclick="signin(this.form)")
+              input(type="button" value="Sign Up" onclick="location.href='/user/signup'")
+            

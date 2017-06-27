@@ -1,7 +1,6 @@
-//db설정 -> 나중에 설명하자.
 var dbConfig = require('./db/db_config');
 var mysql = require('mysql');
-global.client = mysql.createConnection(dbConfig);
+global.dbPool = mysql.createPool(dbConfig);
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -31,12 +30,15 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(error, request, response, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  if(app.get('env') === 'development'){
+    response.render('error', {message:error.message,
+                         status:error.status||500,
+                         error:error});
+  }else{
+    response.status(error.status || 500);
+    response.render('error_product');
+    //에러 종류에 따라 다른 에러페이지를 보여줄 수 있다.
+  }
 });

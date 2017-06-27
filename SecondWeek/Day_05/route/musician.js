@@ -14,6 +14,7 @@ var conn = mysql.createConnection({
 });
 var pool = mysql.createPool(
   {
+    connectionLimit:1,
     host:'localhost',
     port:3306,
     user:'root',
@@ -51,8 +52,13 @@ router.post('/add',function(request, response){
 router.get('/delete/:id', function(request, response){
   var id = request.params.id;
   var query = "delete from musician where id = ?";
-  conn.query(query, [id], function(){
-    response.redirect('/musician');
+  pool.getConnection(function(error, conn){
+    //파라미터가 하나면 배열로 넣을 필요 없다.
+    conn.query(query, id, function(){
+      //conn을 pool에게 돌려준다.
+      conn.release();
+      response.redirect('/musician');
+    });
   });
 });
 

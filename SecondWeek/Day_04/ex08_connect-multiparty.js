@@ -45,7 +45,7 @@ app.post('/fileupload',function(request, response){
     //이미지 파일인지 확인
     if(type.indexOf('image') != -1){
       //이미지 파일일 경우 이름을 변경한다.
-      var newName = +Date.now()+'_'+imageFile.name;
+      var newName = Date.now()+'_'+imageFile.name;
       var newPath = __dirname + '/upload/' + newName;
       fs.rename(imageFile.path, newPath, function(error){
         response.render("upload/viewImage.pug",{comment:request.body.comment, path:"/upload/"+newName});

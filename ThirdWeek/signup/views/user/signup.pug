@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title Sign Up
+    script.
+      function signup(form){
+        var id = form.id;
+        var pwd = form.pwd;
+        var name = form.name;
+        
+        if(!id.value){
+          alert('insert id');
+          id.focus();
+          return;
+        }
+        
+        if(!pwd.value){
+          alert('insert id');
+          pwd.focus();
+          return;
+        }
+        
+        if(!name.value){
+          alert('insert id');
+          name.focus();
+          return;
+        }
+        
+        form.submit();
+      }
+  body
+    form(action="/user/signup" method="post")
+      table
+        tr
+          th ID
+          td: input(name="id")
+        tr
+          th PWD
+          td: input(type="password" name="pwd")
+        tr
+          th NAME
+          td: input(name="name")
+        tr
+          th GENDER
+          td
+            input(type="radio" name="gender" value="man")
+            |Man
+            input(type="radio" name="gender" value="man" checked)
+            |Female
+        tr
+          td(colspan="2")
+            input(type="button" value="Sign Up" onclick="signup(this.form)")
+            input(type="button" value="Cancle" onclick="location.href='/'")
+            
+            
+            
+            

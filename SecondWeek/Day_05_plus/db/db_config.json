@@ -1,7 +1,9 @@
 {
+  "connectionLimit":3,
   "host":"127.0.0.1",
   "port":3306,
+  "database":"node_general",
   "user":"root",
-  "password":"1111",
-  "database":"node_general"
+  "password":"1111"
+
 }
