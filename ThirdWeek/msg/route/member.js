@@ -17,7 +17,7 @@ router.post('/join', function(request, response) {
   var pwd = request.body.pwd;
   var name = request.body.name;
   var gender = request.body.gender;
-  var query = "insert into member values(?,?,?,?)";
+  var query = "insert into user values(?,?,?,?)";
   dbConn.query(query, [id, pwd, name, gender], function(error, data) {
     if (error) {
       console.log(error);
@@ -29,7 +29,7 @@ router.post('/join', function(request, response) {
 router.post('/login', function(request, response) {
   var id = request.body.id;
   var pwd = request.body.pwd;
-  var query = 'select * from member where id = ? and pwd = ?'
+  var query = 'select * from user where id = ? and pwd = ?'
   dbConn.query(query, [id, pwd], function(error, data) {
     if (error) {
       console.log(error);

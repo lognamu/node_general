@@ -2,11 +2,11 @@
 const mysql = require('mysql');
 var dbConn = mysql.createConnection(
 {
-  "host":"192.168.0.88",
+  "host":"127.0.0.1",
   "port":3306,
-  "user":'root',
+  "user":'flynn',
   "password":"1111",
-  "database":"myapp"
+  "database":"node_general"
 });
 
 module.exports = dbConn;

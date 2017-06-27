@@ -1,0 +1,14 @@
+doctype html
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title
+  body
+    form(action="/musician/update" method="post")
+      input(type="hidden" name="id" value=item.id)
+      input(placeholder="이름" name="name" value=item.name)
+      br
+      input(placeholder="소속사" name="company" value=item.company)
+      br
+      input(type="submit" value="수정")

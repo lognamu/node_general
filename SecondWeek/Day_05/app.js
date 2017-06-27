@@ -14,4 +14,4 @@ app.get('/', function(request, response){
   response.send('<h1>Root Page</h1>');
 });
 
-app.use('/musician', require('./route/musician'));
+app.use('/musician', require('./routes/musician'));
