@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title Sign Up
+  body
+    form(action="/user/signup" method="post")
+      table
+        tr
+          th ID
+          td: input(name="id")
+        tr
+          th PWD
+          td: input(type="password" name="pwd")
+        tr
+          th NAME
+          td: input(name="name")
+        tr
+          th GENDER
+          td
+            input(type="radio" name="gender" value="man")
+            |Man
+            input(type="radio" name="gender" value="man" checked)
+            |Female
+        tr
+          td(colspan="2")
+            input(type="submit" value="Sign Up" )
+            input(type="button" value="Cancle" onclick="location.href='/'")
+            
+            
+            
+            

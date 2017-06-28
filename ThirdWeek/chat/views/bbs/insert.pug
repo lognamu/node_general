@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title
+    link(rel="stylesheet" href="/css/style.css")
+    include ../included/login_check
+    script.
+      function insert(){
+        document.getElementById('f').submit();
+      }
+  body
+    if(user)
+      include ../included/menu_layout
+      .main_div
+        form#f(action="/bbs/insert" method="post")
+          table.list_table(cellspacing="0" cellpadding="0")
+            tr
+              td.td_d(width="120" height="25") 제목
+              td.td_d_1
+                input(name="title")
+            tr
+              td.td_d_4(width="120" height="25") 작성자
+              td.td_d_2
+                input(name="name" value=user.name readonly)
+            tr
+              td.td_d_4(width="120") 내용
+              td.td_wrap.td_d_3(width="570")
+                textarea(name="content" row="8" cols="80")
+          table.list_table(cellspacing="0" cellpadding="0")
+            td(align="right")
+              a(onclick="insert()"): img.pointer(src="/img/btn_reg.gif")
+              a(href="/bbs/list"): img.pointer(src="/img/btn_back.gif")
+                
+            
