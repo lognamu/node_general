@@ -8,3 +8,5 @@ create table user(
     regdate date not null
 );
 
+insert into user values('flynn0', '1111', '홍길동', 'male', curdate());
+

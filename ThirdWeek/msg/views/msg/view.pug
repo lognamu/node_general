@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title
+    link(rel="stylesheet" href="/css/style.css")
+    script(src="/socket.io/socket.io.js")
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+    include ../included/login_check
+    if(user)
+      script.
+        var socket = null;
+        var name = '#{user.name}';
+        var roomName = prompt('입장하실 방의 이름을 입력하세요');
+        if(!roomName){
+          roomName = 'apple';
+        }
+        $(document).ready(function(){
+          socket = io.connect();
+          socket.emit('join', {roomName:roomName, name:name});
+          socket.on('view_users', function(data){
+            $('#connUsers').empty();
+            for(var item of data){
+              var $li = $('<li></li>');
+              $li.addClass('name');
+              if(item.name == name){
+                $li.addClass('myname');
+              }
+              $li.attr('id',item.id);
+              $li.text(item.name);
+              $li.on('click', {socketId:item.id}, selectId);
+              $('#connUsers').append($li);
+            }
+          });
+          
+          socket.on('receive_msg', function(data){
+            var preText = $('#ta').val();
+            var nowText = preText + data.name+":"+data.msg+"\n";
+            $('#ta').val(nowText);
+          });
+          
+          socket.on('update_users', function(data){
+            var $li = $('<li></li>');
+            $li.addClass('name');
+            $li.attr('id',data.id);
+            $li.text(data.name);
+            $li.on('click', {socketId:data.id}, selectId);
+            $('#connUsers').append($li);
+          });
+          
+        });
+        
+        function selectId(event){
+          console.log(event.data.socketId);
+          var msg = prompt('보낼 메세지');
+          if(!msg){
+            return;
+          }
+          socket.emit('sendTo', {to:event.data.socketId, name:name, msg:msg});
+          socket.emit('sendTo', {to:socket.id, name:name, msg:msg});
+        }
+        
+        $(window).on('pagehide', function(){
+          socket.emit('exit', {roomName:roomName});
+        });
+        
+        
+  body
+    if(user)
+      include ../included/menu_layout
+      .center_div
+        ul#connUsers
+        .ta(style="clear:both")
+          textarea#ta(cols="40" rows="20" readonly)
+          

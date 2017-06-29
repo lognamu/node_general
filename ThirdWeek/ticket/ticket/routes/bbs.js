@@ -1,0 +1,62 @@
+const express = require('express');
+const bbsDao = require('../dao/bbsDao');
+const router = express.Router();
+
+module.exports = router;
+
+router.get('/list', function(request, response, next){
+  bbsDao.selectList(function(error, result){
+    if(error){
+      next(error);
+    }else{
+      response.render('bbs/list',
+        {list:result, user:request.session.USER});
+    }
+  });
+});
+
+router.get('/insert', function(request, response){
+  response.render('bbs/insert',{user:request.session.USER});
+});
+
+router.post('/insert', function(request, response, next){
+  bbsDao.insert(request.body, function(error){
+    if(error){
+      next(error);
+    }else{
+      response.redirect('/bbs/list');
+    }
+  });
+});
+
+router.get('/view/:idx', function(request, response, next){
+  bbsDao.selectOne(request.params.idx, function(error, result){
+    if(error){
+      next(error);
+    }else{
+      response.render('bbs/view',
+          {user:request.session.USER, item:result[0]});
+    }
+  });
+});
+
+router.get('/update/:idx', function(request, response, next){
+  bbsDao.selectOne(request.params.idx, function(error, result){
+    if(error){
+      next(error)
+    }else{
+      response.render('bbs/update',
+          {user:request.session.USER, item:result[0]});
+    }
+  });
+});
+
+router.post('/update', function(request, response, next){
+  bbsDao.update(request.body, function(error, result){
+    if(error){
+      next(error)
+    }else{
+      response.redirect('/bbs/view/'+request.body.idx);
+    }
+  });
+});

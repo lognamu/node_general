@@ -34,13 +34,14 @@ body {
 	width: 70px;
 	height: 30px;
 	display:inline-block;
-	background-color: gray;
+	background-color: #04B4AE;
 	margin-right: 30px;
 	text-align: center;
 	line-height: 30px;
+	border-radius: 3px;
 }
 .menu_ul>li:hover{
-	background-color: #bbbbbb;
+	background-color: #01DFD7;
 }
 
 .menu_ul>li>a{
@@ -97,4 +98,42 @@ textarea	{	font:12px dotum,verdana,arial; 	color:#767676; padding:7; line-height
 .td_d_3 { border-top-width:0; border-right-width:1; border-bottom-width:1; border-left-width:0; border-top-color:DDDDDD; border-right-color:dddddd; border-bottom-color:DDDDDD; border-left-color:DDDDDD; border-style:solid; ;; background-color:#FFFFFF;text-align:left; padding:10;}
 
 .td_d_4 { border-top-width:0; border-right-width:1; border-bottom-width:1; border-left-width:3; border-top-color:DDDDDD; border-right-color:dddddd; border-bottom-color:DDDDDD; border-left-color:#2A9EC2; border-style:solid; font-weight:bold; text-align:center ; background-color:#DCF1F7}
+
+.td_pd{padding-left: 10px}
 .tbox{ border:0px solid #999999}
+.list_table{
+	width: 690px; border:0px; margin-top: 30px;
+}
+.no_exist{
+	text-align:center; width:690px; height: 50px; border: 1 solid #efefef
+}
+.td_ct{
+	text-align: center;
+}
+.td_wrap{word-wrap:break-word;word-break:break-all;}
+.pointer{cursor:pointer}
+
+.center_div{
+	width: 600px;
+	padding-right: 20px;
+	padding-left: 25px;
+	margin: 0 auto;
+	text-align: center;
+}
+.center_div ul{
+	list-style: none;
+	text-align: center
+}
+.name{
+	background: #FA58D0;
+	width:50px;
+	color: white;
+	padding:3px;
+	display: inline-block;
+	border-radius:3px;
+	margin-left: 0px;
+	margin-right:10px;
+}
+.myname{
+	background: #FAD058
+}

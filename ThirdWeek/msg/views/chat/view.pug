@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    title
+    link(rel="stylesheet" href="/css/style.css")
+    script(src="/socket.io/socket.io.js")
+    include ../included/login_check
+    if(user)
+      script.
+        var socket = null;
+        window.onload = function(){
+          socket = io.connect();
+          socket.on('receive', function(data){
+            document.getElementById('ta').value += data + '\n'
+          });
+          document.getElementById('send').onclick = sendMsg;
+          document.getElementById('msg').onkeypress = sendMsg;
+        }
+        
+        function sendMsg(event){
+          if(event.type == 'click' || event.code == 'Enter'){
+            var name = '#{user.name}';
+            var msg = document.getElementById('msg').value;
+            if(msg){
+              socket.emit('broadcast', name+':'+msg);
+              document.getElementById('msg').value = ""
+            }
+          }
+        }
+  body
+    if(user)
+      include ../included/menu_layout
+      .main_div 
+        textarea#ta(rows="20" cols="101" style="margin-top:20px")
+        br
+        div(align="right")
+          |#{user.name}:
+          input#msg(style="width:500px")
+          input#send(type="button" value="전송")
+    
+    
