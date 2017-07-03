@@ -5,6 +5,29 @@ html
     title
     script(src="https://code.jquery.com/jquery-3.2.1.min.js")
     script.
+      function get(){
+        $.ajax({
+          type:"GET",
+          url:"/user",
+          data:{id:"10"},
+          success:function(result){
+            console.log(result);
+          }
+        });
+      }
+      
+      function post(){
+        $.ajax({
+          type:"POST",
+          url:"/user",
+          data:{person:{name:"cw", gender:"man"}},
+          success:function(result){
+            console.log(result);
+            console.log(result.person);
+            console.log(result.person.name);
+          }
+        });
+      }
       function put(){
         $.ajax({
           type:"PUT",
@@ -22,7 +45,7 @@ html
         $.ajax({
           type:"DELETE",
           url:"/user/10",
-          //data:{id:"10"},
+          data:{id:"10"},
           success:function(result){
             console.log(result);
           }
@@ -30,6 +53,10 @@ html
       }
       
   body
+    input(type="button" value="GET" onclick="get()")
+    br
+    input(type="button" value="POST" onclick="post()")
+    br
     input(type="button" value="PUT" onclick="put()")
     br    
     input(type="button" value="DELETE" onclick="del()")

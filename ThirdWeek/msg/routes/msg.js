@@ -46,6 +46,7 @@ io.sockets.on('connection', function(socket){
   });
 
   socket.on('exit', function(data){
+    console.log('exit');
     var users = rooms[socket.roomNum].users;
     socket.leave(data.roomName);
     for(var i in users){

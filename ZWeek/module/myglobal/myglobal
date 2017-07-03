@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+//위처럼 node의 위치를 알려주자
 console.log('Global Mudule');
 console.log('argv: ', process.argv);
 console.log('dirname', __dirname);

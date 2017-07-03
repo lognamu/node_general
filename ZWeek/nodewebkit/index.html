@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="./app.js"></script>
+  <body>
+    <table>
+      <caption>:::계산기:::</caption>
+      <tr>
+        <td colspan="4">
+          <input type="text" name="formula" id="formula" readonly>
+        </td>
+        <tr>
+          <td>
+            <input type="button" name="" value="7" onclick="input(this.value)">
+            <input type="button" name="" value="8" onclick="input(this.value)">
+            <input type="button" name="" value="9" onclick="input(this.value)">
+            <input type="button" name="" value="/" onclick="input(this.value)">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="button" name="" value="4" onclick="input(this.value)">
+            <input type="button" name="" value="5" onclick="input(this.value)">
+            <input type="button" name="" value="6" onclick="input(this.value)">
+            <input type="button" name="" value="*" onclick="input(this.value)">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="button" name="" value="1" onclick="input(this.value)">
+            <input type="button" name="" value="2" onclick="input(this.value)">
+            <input type="button" name="" value="3" onclick="input(this.value)">
+            <input type="button" name="" value="-" onclick="input(this.value)">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="button" name="" value="0" onclick="input(this.value)">
+            <input type="button" name="" value="+" onclick="input(this.value)">
+            <input type="button" name="" value="C" onclick="init()">
+            <input type="button" name="" value="=" onclick="calc()">
+          </td>
+        </tr>
+      </tr>
+    </table>
+  </body>
+</html>

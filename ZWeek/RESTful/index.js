@@ -15,12 +15,13 @@ app.get('/',function(requset, response){
   response.render('form.pug');
 });
 
-app.get('/user/:id',function(request, response){
-  response.send('get:'+request.params.id);
+app.get('/user',function(request, response){
+  response.send('get:'+request.query.id);
 });
 
 app.post('/user',function(request, response){
-  response.send('post:'+request.body.id);
+  console.log(request.body);
+  response.send(request.body);
 });
 
 app.put('/user',function(request, response){

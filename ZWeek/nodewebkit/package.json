@@ -1,0 +1,15 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "window": {
+    "icon":"images/icon.png",
+    "fram":true,
+    "width":418,
+    "height":418,
+    "position":"center",
+    "resizable":false
+  },
+  "webkit": {}
+}

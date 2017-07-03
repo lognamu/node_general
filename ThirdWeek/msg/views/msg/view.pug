@@ -60,8 +60,9 @@ html
           socket.emit('sendTo', {to:socket.id, name:name, msg:msg});
         }
         
-        $(window).on('pagehide', function(){
-          socket.emit('exit', {roomName:roomName});
+        $(window).on('beforeunload', function(event){
+          socket.emit('exit', {roomName:roomName});  
+          event.returnValue = "sure?";   
         });
         
         

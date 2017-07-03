@@ -14,7 +14,10 @@ var http = require('http');
 
 //process.env는 사용자의 환경변수를 관리하는 객체이다
 //PORT=4000 node index.js 를 실행하면 process.env.PORT 는 4000이 된다.
+//Window에서는 set PORT =4000 && node app.js
+
 var port = normalizePort(process.env.PORT || '3000');
+console.log(port);
 app.set('port', port);
 
 /**
